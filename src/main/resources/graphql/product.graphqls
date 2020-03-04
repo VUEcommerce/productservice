@@ -1,0 +1,46 @@
+interface Product {
+    sku: ID!,
+    name: String!,
+    brand: String,
+    price: Float,
+    quantity: Integer,
+    description: String,
+    weight: Float,
+    image: String
+}
+
+type Query {
+    products(count: Int):[Product]
+    product(sku: ID!): Product
+}
+
+type Mutation {
+    createProduct(name: String!, 
+                brand: String,
+            price: Float,
+            quantity: Integer,
+            description: String,
+            weight: Float,
+            image: String
+    )
+}
+
+type Clothes implements Product {
+    sku: ID!,
+    brand: String!,
+    name: String!,
+    price: Float!,
+    quantity: Integer,
+    description: String,
+    weight: Float,
+    image: String,
+    size: Size
+}
+
+enum Size {
+    ExtraSmall,
+    Small,
+    Medium,
+    Large,
+    ExtraLarge
+}
