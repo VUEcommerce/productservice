@@ -1,3 +1,4 @@
+# There can only be one graphsqls file in spring service
 interface Product {
     sku: ID!,
     name: String!,
@@ -9,11 +10,13 @@ interface Product {
     image: String
 }
 
+# There can only be one Query
 type Query {
     products(count: Int):[Product]
     product(sku: ID!): Product
 }
 
+# There can only be one Mutation
 type Mutation {
     createProduct(name: String!, 
                 brand: String,

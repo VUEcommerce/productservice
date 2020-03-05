@@ -1,4 +1,4 @@
-package com.vue.productservice.resolver;
+package com.vue.productservice.model;
 
 import java.time.LocalDate;
 
