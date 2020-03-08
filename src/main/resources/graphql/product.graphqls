@@ -12,19 +12,34 @@ interface Product {
 
 # There can only be one Query
 type Query {
-    products(count: Int):[Product]
-    product(sku: ID!): Product
+    products(brand: String!):[Product]
+    product(sku: ID): Product
 }
 
 # There can only be one Mutation
 type Mutation {
-    createProduct(name: String!, 
-                brand: String,
+    createProduct(
+            sku: ID!,
+            name: String!, 
+            brand: String,
             price: Float,
             quantity: Integer,
             description: String,
             weight: Float,
             image: String
+    )
+    updateProduct(
+            sku: ID!,
+            name: String!, 
+            brand: String,
+            price: Float,
+            quantity: Integer,
+            description: String,
+            weight: Float,
+            image: String)
+    deleteProduct(
+            sku: ID!,
+            name: String!
     )
 }
 
