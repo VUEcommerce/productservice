@@ -20,7 +20,7 @@ CREATE TABLE `ProductModel` (
   `Quantity` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`SKU`),
   UNIQUE KEY (`SKU`, `Name`)
-);
+) ENGINE=InnoDB;
 
 -- ----------------------------
 -- Table structure for Brand
@@ -37,4 +37,4 @@ CREATE TABLE `BrandModel` (
   `JoinDate` datetime DEFAULT NULL,
   PRIMARY KEY (`BrandId`),
   UNIQUE KEY (`BrandId`, `Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB;

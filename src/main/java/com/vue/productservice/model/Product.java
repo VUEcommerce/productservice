@@ -27,30 +27,30 @@ public class Product implements Serializable {
 
     @Id
     @NonNull
-    @Column(name = "sku", nullable = false)
+    @Column(name = "SKU", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String sku;
+    private int sku;
 
     @NonNull
-    @Column(name = "name", nullable = false)
+    @Column(name = "Name", nullable = false)
     private String name;
 
-    @Column(name = "brand", nullable = true)
+    @Column(name = "Brand", nullable = true)
     private String brand;
 
-    @Column(name = "price", nullable = true)
+    @Column(name = "Price", nullable = true)
     private Float price;
 
-    @Column(name = "quantity", nullable = true)
+    @Column(name = "Quantity", nullable = true)
     private Integer quantity;
 
-    @Column(name = "description", nullable = true)
+    @Column(name = "Description", nullable = true)
     private String description;
 
-    @Column(name = "weight", nullable = true)
+    @Column(name = "Weight", nullable = true)
     private Float weight;
 
-    @Column(name = "image", nullable = true)
+    @Column(name = "Image", nullable = true)
     private String image;
 
 

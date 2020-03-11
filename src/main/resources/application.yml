@@ -1,12 +1,38 @@
+spring:
+  application:
+    name: productservice
+  jpa.hibernate.ddl-auto: update
+  datasource:
+    url: jdbc:mysql://192.168.8.9:40089/vue
+    username: root
+    password: password
 
 server:
   port: 8090
-  servlet:
-    context-path: /
 
-# spring:
-#     jpa.hibernate.ddl-auto: update
-#     datasource:
-#         url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
-#         username: user
-#         password: password
+graphql:
+  tools:
+    schema-location-pattern: "**/*.graphqls"
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+    # if you want to @ExceptionHandler annotation for custom GraphQLErrors
+    exception-handlers-enabled: true
+    contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
+  
+
+graphiql:
+    mapping: /graphiql
+    endpoint:
+      graphql: /graphql
+    static:
+      basePath: /
+    enabled: true
+    pageTitle: GraphiQL
+    cdn:
+      enabled: false
+      version: 0.13.0
+    props:
+      variables:
+        editorTheme: "solarized light"

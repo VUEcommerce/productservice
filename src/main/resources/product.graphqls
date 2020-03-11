@@ -1,0 +1,65 @@
+# There can only be one graphsqls file in spring service
+interface Product {
+    sku: ID!,
+    name: String!,
+    brand: String,
+    price: Float,
+    quantity: Int,
+    description: String,
+    weight: Float,
+    image: String
+}
+
+# There can only be one Query
+type Query {
+    # products(brand: String!):[Product]
+    product(sku: ID): Product
+}
+
+# There can only be one Mutation
+# type Mutation {
+#     createProduct(
+#             sku: ID!,
+#             name: String!, 
+#             brand: String,
+#             price: Float,
+#             quantity: Integer,
+#             description: String,
+#             weight: Float,
+#             image: String
+#     )
+#     updateProduct(
+#             sku: ID!,
+#             name: String!, 
+#             brand: String,
+#             price: Float,
+#             quantity: Integer,
+#             description: String,
+#             weight: Float,
+#             image: String
+#     )
+#     deleteProduct(
+#             sku: ID!,
+#             name: String!
+#     )
+# }
+
+# type Clothes implements Product {
+#     sku: ID!,
+#     brand: String!,
+#     name: String!,
+#     price: Float!,
+#     quantity: Integer,
+#     description: String,
+#     weight: Float,
+#     image: String,
+#     size: Size
+# }
+
+# enum Size {
+#     ExtraSmall,
+#     Small,
+#     Medium,
+#     Large,
+#     ExtraLarge
+# }

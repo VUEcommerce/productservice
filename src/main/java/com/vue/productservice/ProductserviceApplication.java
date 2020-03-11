@@ -1,7 +1,13 @@
 package com.vue.productservice;
 
+import com.vue.productservice.query.ProductQuery;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import graphql.kickstart.tools.SchemaParser;
+import graphql.schema.GraphQLSchema;
 
 @SpringBootApplication
 public class ProductserviceApplication {
@@ -10,4 +16,12 @@ public class ProductserviceApplication {
 		SpringApplication.run(ProductserviceApplication.class, args);
 	}
 
+	@Bean
+	GraphQLSchema schema() {
+        return SchemaParser.newParser()
+                       .file("product.graphqls")
+                       .resolvers(new ProductQuery())
+                       .build()
+                       .makeExecutableSchema();
+    }
 }
