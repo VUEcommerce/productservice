@@ -1,4 +1,9 @@
+-- #mysql -h <ip> -P <p> -u root -p
+-- #use vue
+
 SET FOREIGN_KEY_CHECKS=0;
+CREATE DATABASE vue;
+SELECT @@default_storage_engine;
 
 -- ----------------------------
 -- Table structure for Product
@@ -12,10 +17,10 @@ CREATE TABLE `ProductModel` (
   `Image` varchar(128) DEFAULT '',
   `Price` float(10,2) DEFAULT '0.00',
   `Weight` float(6,3) DEFAULT '0.000',
-  `Quantity` int(11) unsigned DEFAULT '0'
+  `Quantity` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`SKU`),
-  UNIQUE KEY (`SKU`, `NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+  UNIQUE KEY (`SKU`, `Name`)
+);
 
 -- ----------------------------
 -- Table structure for Brand
@@ -32,4 +37,4 @@ CREATE TABLE `BrandModel` (
   `JoinDate` datetime DEFAULT NULL,
   PRIMARY KEY (`BrandId`),
   UNIQUE KEY (`BrandId`, `Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
