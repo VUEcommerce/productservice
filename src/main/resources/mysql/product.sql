@@ -23,6 +23,16 @@ CREATE TABLE `ProductModel` (
 ) ENGINE=InnoDB;
 
 -- ----------------------------
+-- Table structure for Clothes
+-- ----------------------------
+DROP TABLE IF EXISTS `ClothesModel`;
+CREATE TABLE `ClothesModel` (
+  `SKU` varchar(32) NOT NULL,
+  `Size` varchar(16) DEFAULT '',
+  PRIMARY KEY (`SKU`),
+) ENGINE=InnoDB;
+
+-- ----------------------------
 -- Table structure for Brand
 -- ----------------------------
 DROP TABLE IF EXISTS `BrandModel`;

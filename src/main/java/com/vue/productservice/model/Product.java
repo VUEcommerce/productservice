@@ -1,29 +1,20 @@
 package com.vue.productservice.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @Data
 @Entity
-@Getter
-@Setter
-@EqualsAndHashCode
-@RequiredArgsConstructor
-public class Product implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Product {
 
     @Id
     @NonNull
@@ -52,6 +43,5 @@ public class Product implements Serializable {
 
     @Column(name = "Image", nullable = true)
     private String image;
-
 
 }
