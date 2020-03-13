@@ -12,10 +12,10 @@ interface Product {
 
 type Clothes implements Product {
     sku: ID!,
-    brand: String!,
+    brand: String,
     name: String!,
-    price: Float!,
-    quantity: Integer,
+    price: Float,
+    quantity: Int,
     description: String,
     weight: Float,
     image: String,
@@ -32,8 +32,8 @@ enum Size {
 
 # There can only be one Query
 type Query {
-    # products(brand: String!):[Product]
-    getOneClothes(sku: ID): Clothes
+    getClothes(sku: ID, name: String): Clothes
+    getAllClothes: [Clothes]
 }
 
 # There can only be one Mutation

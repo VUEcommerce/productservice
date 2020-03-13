@@ -1,5 +1,6 @@
 -- #mysql -h <ip> -P <p> -u root -p
--- #use vue
+-- 
+-- docker access locally: docker run -p 13306:3306 mysql:<tag>
 
 SET FOREIGN_KEY_CHECKS=0;
 CREATE DATABASE vue;

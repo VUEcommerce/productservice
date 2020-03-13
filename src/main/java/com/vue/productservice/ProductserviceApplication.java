@@ -1,6 +1,6 @@
 package com.vue.productservice;
 
-import com.vue.productservice.query.ProductQuery;
+import com.vue.productservice.query.ClothesQuery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +20,7 @@ public class ProductserviceApplication {
 	GraphQLSchema schema() {
         return SchemaParser.newParser()
                        .file("product.graphqls")
-                       .resolvers(new ProductQuery())
+                       .resolvers(new ClothesQuery())
                        .build()
                        .makeExecutableSchema();
     }

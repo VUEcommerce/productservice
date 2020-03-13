@@ -4,25 +4,40 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-import lombok.Data;
-import lombok.NonNull;
-
-@Data
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
 @Entity
+@Table(name = "ProductModel")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
 
-    @Id
-    @NonNull
-    @Column(name = "SKU", nullable = false)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int sku;
+    public Product() {
 
-    @NonNull
+    }
+
+    public Product(String sku, String name) {
+        this.sku = sku;
+        this.name = name;
+    }
+
+    @Id
+    @Column(name = "SKU", nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String sku;
+
     @Column(name = "Name", nullable = false)
     private String name;
 

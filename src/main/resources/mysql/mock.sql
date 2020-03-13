@@ -24,9 +24,9 @@ INSERT INTO `ProductModel` VALUES ('000009', 'NAME_A000009', 'BRAND_B', 'descrip
 INSERT INTO `ProductModel` VALUES ('000010', 'NAME_A000010', 'BRAND_B', 'description', 'http://image.com', '10.00', '1.0', '1');
 INSERT INTO `ProductModel` VALUES ('000011', 'NAME_A000011', 'BRAND_C', 'description', 'http://image.com', '10.00', '1.0', '1');
 
-INSERT INTO `ClothesModel` VALUES ('000001', 'MEDIUM'); 
-INSERT INTO `ClothesModel` VALUES ('000002', 'MEDIUM');
-INSERT INTO `ClothesModel` VALUES ('000003', 'MEDIUM');
-INSERT INTO `ClothesModel` VALUES ('000004', 'MEDIUM');
-INSERT INTO `ClothesModel` VALUES ('000005', 'MEDIUM');
+INSERT INTO `ClothesModel` VALUES ('000001', 'Medium'); 
+INSERT INTO `ClothesModel` VALUES ('000002', 'Medium');
+INSERT INTO `ClothesModel` VALUES ('000003', 'Medium');
+INSERT INTO `ClothesModel` VALUES ('000004', 'Medium');
+INSERT INTO `ClothesModel` VALUES ('000005', 'Medium');
 
