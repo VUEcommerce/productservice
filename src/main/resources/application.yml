@@ -3,12 +3,13 @@ spring:
     name: productservice
   jpa.hibernate.ddl-auto: update
   datasource:
-    url: jdbc:mysql://192.168.8.9:40089/vue
     username: root
     password: password
+    url: jdbc:mysql://192.168.8.9:40089/vue
+    #url: jdbc:mysql://0.0.0.0:13306/vue
 
 server:
-  port: 8090
+  port: 8080
 
 graphql:
   tools:

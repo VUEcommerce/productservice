@@ -1,32 +1,29 @@
 -- #mysql -h <ip> -P <p> -u root -p
 -- 
 -- docker access locally: docker run -p 13306:3306 mysql:<tag>
+--
+-- docker staging: mysql -h 192.168.8.9 -P 40089 -u root -p
 
 SET FOREIGN_KEY_CHECKS=0;
 CREATE DATABASE vue;
 SELECT @@default_storage_engine;
 
 -- ----------------------------
--- Table structure for Product
+-- Table structure for Clothes
 -- ----------------------------
-DROP TABLE IF EXISTS `ProductModel`;
-CREATE TABLE `ProductModel` (
-  `SKU` varchar(32) NOT NULL,
-  `Name` varchar(32) NOT NULL DEFAULT '',
-  `Brand` varchar(32) DEFAULT '',
-  `Description` varchar(1024) DEFAULT '',
-  `Image` varchar(128) DEFAULT '',
-  `Price` float(10,2) DEFAULT '0.00',
-  `Weight` float(6,3) DEFAULT '0.000',
-  `Quantity` int(11) unsigned DEFAULT '0',
-  PRIMARY KEY (`SKU`),
-  UNIQUE KEY (`SKU`, `Name`)
-) ENGINE=InnoDB;
-
-DROP TABLE IF EXISTS `ClothesModel`;
-CREATE TABLE `ClothesModel` (
-  `SKU` varchar(32) NOT NULL,
-  `Size` varchar(16) DEFAULT ''
+DROP TABLE IF EXISTS `Clothes`;
+CREATE TABLE `Clothes` (
+  `sku` varchar(32) NOT NULL,
+  `name` varchar(32) NOT NULL DEFAULT '',
+  `brand` varchar(32) DEFAULT '',
+  `description` varchar(1024) DEFAULT '',
+  `image` varchar(128) DEFAULT '',
+  `price` float(10,2) DEFAULT '0.00',
+  `weight` float(6,3) DEFAULT '0.000',
+  `quantity` bigint(11) unsigned DEFAULT '0',
+  `size` varchar(16) DEFAULT '',
+  PRIMARY KEY (`sku`),
+  UNIQUE KEY (`sku`, `name`)
 ) ENGINE=InnoDB;
 
 -- ----------------------------

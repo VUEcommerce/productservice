@@ -1,45 +1,48 @@
 package com.vue.productservice.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.Id;
 import javax.persistence.Table;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter
+@ToString
+@NoArgsConstructor
 @Entity
-@Table(name = "ClothesModel")
-public class Clothes extends Product {
+@Table(name = "Clothes")
+public class Clothes {
 
-    public Clothes(String sku, String name, String brand, Float price, 
-            Integer quantity, String description, Float weight, 
-            String image, Size size) {
-        super(sku, name, brand, price, quantity, description, weight, image);
-        this.size = size;
-    }
+    @Id
+    @Column(name = "sku", nullable = false, updatable = false)
+    private String sku;
 
-    public Clothes(String sku, String name) {
-        super(sku, name);
-    }
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    public Clothes() {
+    @Column(name = "brand", nullable = true)
+    private String brand;
 
-    }
+    @Column(name = "price", nullable = true)
+    private Float price;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "Size", nullable = true)
-    private Size size;
+    @Column(name = "quantity", nullable = true)
+    private Integer quantity;
 
-    public enum Size {
-        ExtraSmall,
-        Small,
-        Medium,
-        Large,
-        ExtraLarge
-    }
+    @Column(name = "description", nullable = true)
+    private String description;
 
+    @Column(name = "weight", nullable = true)
+    private Float weight;
+
+    @Column(name = "image", nullable = true)
+    private String image;
+
+    @Column(name = "size", nullable = true)
+    private String size;
 }
