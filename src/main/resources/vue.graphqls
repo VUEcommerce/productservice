@@ -1,5 +1,5 @@
 # There can only be one graphsqls file in spring service
-type Product {
+interface IProduct {
     sku: ID!,
     name: String!,
     brand: String,
@@ -10,7 +10,18 @@ type Product {
     image: String
 }
 
-type Clothes {
+type Product implements IProduct {
+    sku: ID!,
+    name: String!,
+    brand: String,
+    price: Float,
+    quantity: Int,
+    description: String,
+    weight: Float,
+    image: String
+}
+
+type Clothes implements IProduct {
     sku: ID!,
     brand: String,
     name: String!,
@@ -19,12 +30,20 @@ type Clothes {
     description: String,
     weight: Float,
     image: String,
-    size: String
+    size: Size
+}
+
+enum Size {
+    ExtraSmall,
+    Small,
+    Medium,
+    Large,
+    ExtraLarge
 }
 
 # There can only be one Query
 type Query {
-    getClothes(sku: ID, name: String): Clothes
+    getClothes(sku: ID!, name: String): Clothes
 }
 
 # There can only be one Mutation

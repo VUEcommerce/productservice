@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.annotation.PostConstruct;
 
+import com.vue.productservice.model.Product;
 import com.vue.productservice.query.ClothesQuery;
 import com.vue.productservice.repository.ClothesRepository;
 
@@ -18,14 +19,14 @@ import graphql.schema.GraphQLSchema;
 @Configuration
 public class GraphQLConfig {
 
+    private GraphQL graphQL;
+
     @Autowired
     private ClothesRepository clothesRepository;
 
-    private GraphQL graphQL;
-
     @PostConstruct 
     public void init() throws IOException {
-        GraphQLSchema graphQLSchema = schema(clothesRepository);
+        GraphQLSchema graphQLSchema = schema();
         this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
     }
 
@@ -35,10 +36,11 @@ public class GraphQLConfig {
     }
 
     @Bean
-    public GraphQLSchema schema(ClothesRepository clothesRepository) {
+    public GraphQLSchema schema() {
         return SchemaParser.newParser()
-                .file("product.graphqls")
+                .file("vue.graphqls")
                 .resolvers(new ClothesQuery(clothesRepository))
+                .dictionary(Product.class)
                 .build().makeExecutableSchema();
     }
 

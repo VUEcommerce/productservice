@@ -6,9 +6,7 @@ import com.vue.productservice.repository.ClothesRepository;
 import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Component
 public class ClothesQuery implements GraphQLQueryResolver {
 

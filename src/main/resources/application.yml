@@ -1,7 +1,9 @@
 spring:
   application:
     name: productservice
-  jpa.hibernate.ddl-auto: update
+  jpa:
+    hibernate.ddl-auto: update
+    open-in-view: false
   datasource:
     username: root
     password: password
