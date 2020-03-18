@@ -9,21 +9,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Table;
 
 @Getter
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@Entity
-@Table(name = "Clothes")
+@Entity(name = "Clothes")
 public class Clothes extends Product  {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "size", nullable = true)
     private Size size;
 
-    enum Size {
+    public enum Size {
         ExtraSmall,
         Small,
         Medium,

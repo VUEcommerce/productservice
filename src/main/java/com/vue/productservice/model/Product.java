@@ -8,18 +8,19 @@ import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity
-@Table(name = "Product")
+@Entity(name = "Product")
 public class Product {
 
     @Id
-    @Column(name = "sku", nullable = false, updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
+    private String id;
+
+    @Column(name = "sku", nullable = false)
     private String sku;
 
     @Column(name = "name", nullable = false)

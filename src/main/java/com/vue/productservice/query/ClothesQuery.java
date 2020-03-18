@@ -16,8 +16,8 @@ public class ClothesQuery implements GraphQLQueryResolver {
         this.clothesRepository = clothesRepository;
     }
 
-    public Clothes getClothes(String sku, String name) {
-        return clothesRepository.findBySkuAndName(sku, name);
+    public Clothes getClothes(String id) {
+        return clothesRepository.findById(id).get();
     }
 
 }
