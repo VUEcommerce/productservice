@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface ClothesRepository extends JpaRepository<Clothes, String> {
 
+    @Override
     @Query(value = "SELECT * FROM Clothes WHERE id=?", nativeQuery = true)
     Optional<Clothes> findById(String id);
 

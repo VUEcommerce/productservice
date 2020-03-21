@@ -6,14 +6,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
-@Entity(name = "Product")
+@MappedSuperclass
 public class Product {
 
     @Id
