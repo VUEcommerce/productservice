@@ -1,7 +1,5 @@
 package com.vue.productservice;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import com.vue.productservice.model.Clothes;
 import com.vue.productservice.repository.ClothesRepository;
 
@@ -11,6 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -41,8 +42,7 @@ public class JpaTest {
     @Test
     public void whenFindBySkuthenReturnClothes() {
 
-        assertEquals(clothes.getId(), clothesRepository.findById(clothes.getId()).get().getId(), 
-                "JPA repo result does not matched");
+        assertThat(clothesRepository.findById(clothes.getId()).get(), notNullValue());
     }
 
 
