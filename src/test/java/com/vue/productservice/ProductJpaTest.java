@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class JpaTest {
+public class ProductJpaTest {
     
     @Autowired
     private ClothesRepository clothesRepository;
@@ -40,8 +40,7 @@ public class JpaTest {
     }
 
     @Test
-    public void whenFindBySkuthenReturnClothes() {
-
+    public void whenFindByIdthenReturnClothes() {
         assertThat(clothesRepository.findById(clothes.getId()).get(), notNullValue());
     }
 

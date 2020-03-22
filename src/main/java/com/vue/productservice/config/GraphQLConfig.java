@@ -38,7 +38,7 @@ public class GraphQLConfig {
     @Bean
     public GraphQLSchema schema() {
         return SchemaParser.newParser()
-                .file("vue.graphqls")
+                .file("vue.graphql")
                 .resolvers(new ClothesQuery(clothesRepository))
                 .dictionary(Product.class)
                 .build().makeExecutableSchema();
