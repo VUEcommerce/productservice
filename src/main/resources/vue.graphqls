@@ -49,6 +49,21 @@ type Query {
     getClothes(id: ID!): Clothes
 }
 
+# Interface Brand {
+#   id: ID!,
+#   isActive: Boolean(true),
+#   name: String!,
+#   rating: Float!,
+#   numberOfRatings: Integer(5.0),
+#   numberOfFollowers: Integer(0),
+#   location: String!, 
+#   facebookUrl: String,
+#   instagramUrl: String!  
+#   twitterUrl: String,
+#   createdDate: DateTime!,
+#   lastModifiedDate: DateTime,
+# }
+
 # There can only be one Mutation
 # type Mutation {
 #     createProduct(
