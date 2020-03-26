@@ -56,7 +56,6 @@ public class ProductGraphQLTest {
         assertEquals("NAME_000001", testClothes.getName(), "Name check");
     }
 
-    @Ignore
     @Test
     public void whenGraphqlFindByIdthenReturnClothes() throws IOException {
         GraphQLResponse response = testTemplate.postForResource("get-clothes-by-id.graphql");

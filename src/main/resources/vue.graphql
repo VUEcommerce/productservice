@@ -1,4 +1,11 @@
-# There can only be one graphsqls file in spring service
+type Query {
+    clothes(id: ID!): Clothes
+}
+
+type Mutation {
+    saveClothes(input: ClothesInput): Clothes
+}
+
 interface IProduct {
     id: ID!
     sku: String!,
@@ -36,6 +43,19 @@ type Clothes implements IProduct {
     size: Size
 }
 
+input ClothesInput {
+    id: ID!,
+    sku: String!,
+    name: String!,
+    brand: String,
+    price: Float,
+    quantity: Int,
+    description: String,
+    weight: Float,
+    image: String,
+    size: Size
+}
+
 enum Size {
     ExtraSmall,
     Small,
@@ -44,51 +64,4 @@ enum Size {
     ExtraLarge
 }
 
-# There can only be one Query
-type Query {
-    getClothes(id: ID!): Clothes
-}
-
-# Interface Brand {
-#   id: ID!,
-#   isActive: Boolean(true),
-#   name: String!,
-#   rating: Float!,
-#   numberOfRatings: Integer(5.0),
-#   numberOfFollowers: Integer(0),
-#   location: String!, 
-#   facebookUrl: String,
-#   instagramUrl: String!  
-#   twitterUrl: String,
-#   createdDate: DateTime!,
-#   lastModifiedDate: DateTime,
-# }
-
-# There can only be one Mutation
-# type Mutation {
-#     createProduct(
-#             sku: ID!,
-#             name: String!, 
-#             brand: String,
-#             price: Float,
-#             quantity: Integer,
-#             description: String,
-#             weight: Float,
-#             image: String
-#     )
-#     updateProduct(
-#             sku: ID!,
-#             name: String!, 
-#             brand: String,
-#             price: Float,
-#             quantity: Integer,
-#             description: String,
-#             weight: Float,
-#             image: String
-#     )
-#     deleteProduct(
-#             sku: ID!,
-#             name: String!
-#     )
-# }
 

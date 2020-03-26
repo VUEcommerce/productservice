@@ -14,7 +14,7 @@ import javax.persistence.Enumerated;
 @Setter
 @ToString(callSuper = true)
 @NoArgsConstructor
-@Entity(name = "Clothes")
+@Entity(name = "product_clothes")
 public class Clothes extends Product  {
 
     @Enumerated(EnumType.STRING)

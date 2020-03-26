@@ -11,8 +11,8 @@
 -- ----------------------------
 -- Table structure for Clothes
 -- ----------------------------
-DROP TABLE Clothes IF EXISTS;
-CREATE TABLE `Clothes` (
+DROP TABLE clothes IF EXISTS;
+CREATE TABLE `product_clothes` (
   `id` varchar(32) NOT NULL,
   `sku` varchar(32) NOT NULL,
   `name` varchar(32) NOT NULL DEFAULT '',

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.annotation.PostConstruct;
 
 import com.vue.productservice.model.Product;
+import com.vue.productservice.mutation.ClothesMutation;
 import com.vue.productservice.query.ClothesQuery;
 import com.vue.productservice.repository.ClothesRepository;
 
@@ -39,7 +40,8 @@ public class GraphQLConfig {
     public GraphQLSchema schema() {
         return SchemaParser.newParser()
                 .file("vue.graphql")
-                .resolvers(new ClothesQuery(clothesRepository))
+                .resolvers(new ClothesQuery(clothesRepository), 
+                        new ClothesMutation(clothesRepository))
                 .dictionary(Product.class)
                 .build().makeExecutableSchema();
     }

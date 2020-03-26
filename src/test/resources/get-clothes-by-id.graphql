@@ -1,7 +1,7 @@
 query {
-    getClothes(id: "000001") {
-        id
-        sku
-        name
-    }
+  clothes(id: "000001") {
+    id
+    sku
+    name
+  }
 }
