@@ -3,7 +3,8 @@ type Query {
 }
 
 type Mutation {
-    saveClothes(input: ClothesInput): Clothes
+    createClothes(input: ClothesInput!): Clothes!
+    updateClothes(input: ClothesInput!): ID
 }
 
 interface IProduct {

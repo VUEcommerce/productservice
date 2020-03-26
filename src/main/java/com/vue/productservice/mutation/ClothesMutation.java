@@ -18,8 +18,14 @@ public class ClothesMutation implements GraphQLMutationResolver {
         this.clothesRepository = clothesRepository;
     }
 
-    @Transactional
-    public Clothes saveClothes(Clothes clothes) {
+    public Clothes createClothes(Clothes clothes) {
         return clothesRepository.save(clothes);
     }
+
+    public void updateClothes(Clothes clothes) {
+        clothesRepository.updateClothes(clothes.getId(), clothes.getSku(), clothes.getName(), 
+                clothes.getPrice(), clothes.getQuantity(), clothes.getDescription(), 
+                clothes.getWeight(), clothes.getImage(), clothes.getSize());
+    }
+
 }
