@@ -24,4 +24,8 @@ public interface ClothesRepository extends JpaRepository<Clothes, String> {
     void updateClothes(String id, String sku, String name, Float price, Integer quantity, 
             String description, Float weight, String image, Size size);
 
+    @Modifying
+    @Query(value = "DELETE FROM product_clothes WHERE id=?", nativeQuery = true)
+    void deleteById(String id);
+
 }

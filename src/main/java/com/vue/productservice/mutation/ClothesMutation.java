@@ -28,4 +28,8 @@ public class ClothesMutation implements GraphQLMutationResolver {
                 clothes.getWeight(), clothes.getImage(), clothes.getSize());
     }
 
+    public void deleteClothes(String id) {
+        clothesRepository.deleteById(id);
+    }
+
 }

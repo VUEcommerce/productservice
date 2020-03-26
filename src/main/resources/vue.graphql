@@ -4,7 +4,8 @@ type Query {
 
 type Mutation {
     createClothes(input: ClothesInput!): Clothes!
-    updateClothes(input: ClothesInput!): ID
+    updateClothes(input: ClothesInput!): Boolean
+    deleteClothes(id: String!): Boolean
 }
 
 interface IProduct {
