@@ -3,6 +3,7 @@ package com.vue.productservice.query;
 import com.vue.productservice.model.Clothes;
 import com.vue.productservice.repository.ClothesRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
@@ -12,11 +13,8 @@ import java.util.List;
 @Component
 public class ClothesQuery implements GraphQLQueryResolver {
 
-    private final ClothesRepository clothesRepository;
-
-    public ClothesQuery(ClothesRepository clothesRepository) {
-        this.clothesRepository = clothesRepository;
-    }
+    @Autowired
+    private ClothesRepository clothesRepository;
 
     public Clothes clothes(String id) {
         return clothesRepository.findById(id).get();

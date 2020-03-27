@@ -26,10 +26,16 @@ public class GraphQLConfig {
     private GraphQL graphQL;
 
     @Autowired
-    private ClothesRepository clothesRepository;
+    private ClothesQuery clothesQuery;
 
     @Autowired
-    private BrandRepository brandRepository;
+    private BrandQuery brandQuery;
+
+    @Autowired
+    private ClothesMutation clothesMutation;
+
+    @Autowired
+    private BrandMutation brandMutation;
 
     @PostConstruct 
     public void init() throws IOException {
@@ -39,17 +45,14 @@ public class GraphQLConfig {
 
     @Bean
     public GraphQL graphQL() {
-        return graphQL;
+        return this.graphQL;
     }
 
     @Bean
     public GraphQLSchema schema() {
         return SchemaParser.newParser()
                 .file("vue.graphql")
-                .resolvers(new ClothesQuery(clothesRepository), 
-                        new ClothesMutation(clothesRepository),
-                        new BrandQuery(brandRepository),
-                        new BrandMutation(brandRepository))
+                .resolvers(clothesQuery, clothesMutation, brandQuery, brandMutation)
                 .dictionary(Product.class)
                 .build().makeExecutableSchema();
     }

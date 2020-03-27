@@ -3,6 +3,7 @@ package com.vue.productservice.mutation;
 import com.vue.productservice.model.Clothes;
 import com.vue.productservice.repository.ClothesRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
@@ -10,11 +11,8 @@ import graphql.kickstart.tools.GraphQLMutationResolver;
 @Component
 public class ClothesMutation implements GraphQLMutationResolver {
 
-    private final ClothesRepository clothesRepository;
-
-    public ClothesMutation(ClothesRepository clothesRepository) {
-        this.clothesRepository = clothesRepository;
-    }
+    @Autowired
+    private ClothesRepository clothesRepository;
 
     public Clothes createClothes(Clothes clothes) {
         return clothesRepository.save(clothes);

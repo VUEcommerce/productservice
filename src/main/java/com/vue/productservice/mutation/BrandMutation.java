@@ -3,6 +3,7 @@ package com.vue.productservice.mutation;
 import com.vue.productservice.model.Brand;
 import com.vue.productservice.repository.BrandRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
@@ -10,11 +11,8 @@ import graphql.kickstart.tools.GraphQLMutationResolver;
 @Component
 public class BrandMutation implements GraphQLMutationResolver {
 
-    private final BrandRepository brandRepository;
-
-    public BrandMutation(BrandRepository brandRepository) {
-        this.brandRepository = brandRepository;
-    }
+    @Autowired
+    private BrandRepository brandRepository;
 
     public Brand createBrand(Brand brand) {
         return brandRepository.save(brand);
