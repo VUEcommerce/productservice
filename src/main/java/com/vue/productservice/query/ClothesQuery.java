@@ -1,13 +1,13 @@
 package com.vue.productservice.query;
 
-import javax.transaction.Transactional;
-
 import com.vue.productservice.model.Clothes;
 import com.vue.productservice.repository.ClothesRepository;
 
 import org.springframework.stereotype.Component;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
+
+import java.util.List;
 
 @Component
 public class ClothesQuery implements GraphQLQueryResolver {
@@ -18,9 +18,13 @@ public class ClothesQuery implements GraphQLQueryResolver {
         this.clothesRepository = clothesRepository;
     }
 
-    @Transactional
     public Clothes clothes(String id) {
         return clothesRepository.findById(id).get();
     }
+
+    public List<Clothes> clothesByBrand(String brand) {
+        return clothesRepository.findByBrand(brand);
+    }
+    
 
 }

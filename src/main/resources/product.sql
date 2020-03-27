@@ -11,30 +11,38 @@
 -- ----------------------------
 -- Table structure for Clothes
 -- ----------------------------
-DROP TABLE clothes IF EXISTS;
+DROP TABLE IF EXISTS product_clothes;
 CREATE TABLE `product_clothes` (
   `id` varchar(32) NOT NULL,
   `sku` varchar(32) NOT NULL,
   `name` varchar(32) NOT NULL DEFAULT '',
-  `brand` varchar(32) DEFAULT '',
-  `description` varchar(1024) DEFAULT '',
-  `image` varchar(128) DEFAULT '',
-  `price` float(10,2) DEFAULT '0.00',
-  `weight` float(6,3) DEFAULT '0.000',
-  `quantity` bigint(11) unsigned DEFAULT '0',
-  `size` varchar(16) DEFAULT '',
+  `brand` varchar(32) NULL,
+  `desc` text NULL,
+  `img` varchar(128) NULL,
+  `price` float DEFAULT '0.00',
+  `wt` float DEFAULT '0.000',
+  `qty` bigint unsigned DEFAULT '0',
+  `size` varchar(16) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`id`, `sku`)
 ) ENGINE=InnoDB;
+
+
 -- ----------------------------
 -- Table structure for Brand
 -- ----------------------------
--- DROP TABLE IF EXISTS `BrandModel`;
--- CREATE TABLE `BrandModel` (
+DROP TABLE brand;
+-- CREATE TABLE `brand` (
 --   `BrandId` varchar(32) NOT NULL,
+--   isActive
 --   `Name` varchar(32) NOT NULL DEFAULT '',
 --   `Rating` int(3) DEFAULT '0',
 --   `FollowCount` int(11) DEFAULT '0',
+--   location
+--   instagramurl
+--   lastmodifieddate
+--   productcategory
+--   productid
 --   `FacebookUrl` varchar(128) DEFAULT '',
 --   `ShopifyUrl` varchar(128) DEFAULT '',
 --   `ProfileImage` varchar(128) DEFAULT '',

@@ -1,5 +1,6 @@
 type Query {
     clothes(id: ID!): Clothes
+    clothesByBrand(brand: String!): [Clothes]
 }
 
 type Mutation {

@@ -1,18 +1,20 @@
 use vue;
+DROP TABLE IF EXISTS product_clothes;
 CREATE TABLE `product_clothes` (
   `id` varchar(32) NOT NULL,
   `sku` varchar(32) NOT NULL,
   `name` varchar(32) NOT NULL DEFAULT '',
-  `brand` varchar(32) DEFAULT '',
-  `description` varchar(1024) DEFAULT '',
-  `image` varchar(128) DEFAULT '',
-  `price` float(10,2) DEFAULT '0.00',
-  `weight` float(6,3) DEFAULT '0.000',
-  `quantity` bigint(11) unsigned DEFAULT '0',
-  `size` varchar(16) DEFAULT '',
+  `brand` varchar(32) NULL,
+  `desc` text NULL,
+  `img` varchar(128) NULL,
+  `price` float DEFAULT '0.00',
+  `wt` float DEFAULT '0.000',
+  `qty` bigint unsigned DEFAULT '0',
+  `size` varchar(16) NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY (`id`, `sku`)
 ) ENGINE=InnoDB;
+
 
 INSERT INTO `product_clothes` VALUES ('000001', 'S00001', 'NAME_000001', 'BRAND_A', 'description', 'http://image.com', '10.00', '1.0', '1', 'Medium'); 
 INSERT INTO `product_clothes` VALUES ('000002', 'S00002', 'NAME_000002', 'BRAND_A', 'description', 'http://image.com', '10.00', '1.0', '1', 'Medium');
