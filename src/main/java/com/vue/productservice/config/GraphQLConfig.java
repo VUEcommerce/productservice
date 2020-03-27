@@ -6,7 +6,9 @@ import javax.annotation.PostConstruct;
 
 import com.vue.productservice.model.Product;
 import com.vue.productservice.mutation.ClothesMutation;
+import com.vue.productservice.query.BrandQuery;
 import com.vue.productservice.query.ClothesQuery;
+import com.vue.productservice.repository.BrandRepository;
 import com.vue.productservice.repository.ClothesRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class GraphQLConfig {
     @Autowired
     private ClothesRepository clothesRepository;
 
+    @Autowired
+    private BrandRepository brandRepository;
+
     @PostConstruct 
     public void init() throws IOException {
         GraphQLSchema graphQLSchema = schema();
@@ -41,7 +46,8 @@ public class GraphQLConfig {
         return SchemaParser.newParser()
                 .file("vue.graphql")
                 .resolvers(new ClothesQuery(clothesRepository), 
-                        new ClothesMutation(clothesRepository))
+                        new ClothesMutation(clothesRepository),
+                        new BrandQuery(brandRepository))
                 .dictionary(Product.class)
                 .build().makeExecutableSchema();
     }

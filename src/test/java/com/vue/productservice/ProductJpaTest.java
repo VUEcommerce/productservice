@@ -29,11 +29,11 @@ public class ProductJpaTest {
         clothes.setSku("S00001");
         clothes.setName("NAME_000001");
         clothes.setBrand("BRAND_A");
-        clothes.setDescription("BRAND_A");
-        clothes.setImage("http://image.com");
+        clothes.setDesc("BRAND_A");
+        clothes.setImg("http://image.com");
         clothes.setPrice(10.00f);
-        clothes.setQuantity(1);
-        clothes.setWeight(1.0f);
+        clothes.setQty(1);
+        clothes.setWt(1.0f);
         clothes.setSize(Clothes.Size.Medium);
 
         clothesRepository.save(clothes);

@@ -30,16 +30,16 @@ public class Product {
     @Column(name = "price", nullable = true)
     private Float price;
 
-    @Column(name = "quantity", nullable = true)
-    private Integer quantity;
+    @Column(name = "qty", nullable = true)
+    private Integer qty;
 
-    @Column(name = "description", nullable = true)
-    private String description;
+    @Column(name = "desc", nullable = true)
+    private String desc;
 
-    @Column(name = "weight", nullable = true)
-    private Float weight;
+    @Column(name = "wt", nullable = true)
+    private Float wt;
 
-    @Column(name = "image", nullable = true)
-    private String image;
+    @Column(name = "img", nullable = true)
+    private String img;
 
 }

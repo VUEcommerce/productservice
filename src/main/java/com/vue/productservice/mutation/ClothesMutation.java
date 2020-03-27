@@ -24,8 +24,8 @@ public class ClothesMutation implements GraphQLMutationResolver {
 
     public void updateClothes(Clothes clothes) {
         clothesRepository.updateClothes(clothes.getId(), clothes.getSku(), clothes.getName(), 
-                clothes.getPrice(), clothes.getQuantity(), clothes.getDescription(), 
-                clothes.getWeight(), clothes.getImage(), clothes.getSize());
+                clothes.getPrice(), clothes.getQty(), clothes.getDesc(), 
+                clothes.getWt(), clothes.getImg(), clothes.getSize());
     }
 
     public void deleteClothes(String id) {

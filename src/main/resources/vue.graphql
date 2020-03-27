@@ -1,6 +1,7 @@
 type Query {
     clothes(id: ID!): Clothes
     clothesByBrand(brand: String!): [Clothes]
+    brand(id: ID!): Brand
 }
 
 type Mutation {
@@ -15,10 +16,10 @@ interface IProduct {
     name: String!,
     brand: String,
     price: Float,
-    quantity: Int,
-    description: String,
-    weight: Float,
-    image: String
+    qty: Int,
+    desc: String,
+    wt: Float,
+    img: String
 }
 
 type Product implements IProduct {
@@ -27,10 +28,10 @@ type Product implements IProduct {
     name: String!,
     brand: String,
     price: Float,
-    quantity: Int,
-    description: String,
-    weight: Float,
-    image: String
+    qty: Int,
+    desc: String,
+    wt: Float,
+    img: String
 }
 
 type Clothes implements IProduct {
@@ -39,10 +40,10 @@ type Clothes implements IProduct {
     name: String!,
     brand: String,
     price: Float,
-    quantity: Int,
-    description: String,
-    weight: Float,
-    image: String,
+    qty: Int,
+    desc: String,
+    wt: Float,
+    img: String,
     size: Size
 }
 
@@ -52,10 +53,10 @@ input ClothesInput {
     name: String!,
     brand: String,
     price: Float,
-    quantity: Int,
-    description: String,
-    weight: Float,
-    image: String,
+    qty: Int,
+    desc: String,
+    wt: Float,
+    img: String,
     size: Size
 }
 
@@ -66,5 +67,20 @@ enum Size {
     Large,
     ExtraLarge
 }
+
+type Brand {
+    id: ID!
+    name: String!,
+    rate: Int,
+    follow: Int,
+    location: String,
+    img: String,
+    joindate: String,
+    lastmod: String,
+    instag: String,
+    fb: String,
+    shopif: String
+}
+
 
 
