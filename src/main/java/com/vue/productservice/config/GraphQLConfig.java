@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.annotation.PostConstruct;
 
 import com.vue.productservice.model.Product;
+import com.vue.productservice.mutation.BrandMutation;
 import com.vue.productservice.mutation.ClothesMutation;
 import com.vue.productservice.query.BrandQuery;
 import com.vue.productservice.query.ClothesQuery;
@@ -47,7 +48,8 @@ public class GraphQLConfig {
                 .file("vue.graphql")
                 .resolvers(new ClothesQuery(clothesRepository), 
                         new ClothesMutation(clothesRepository),
-                        new BrandQuery(brandRepository))
+                        new BrandQuery(brandRepository),
+                        new BrandMutation(brandRepository))
                 .dictionary(Product.class)
                 .build().makeExecutableSchema();
     }

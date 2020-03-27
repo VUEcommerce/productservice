@@ -8,6 +8,9 @@ type Mutation {
     createClothes(input: ClothesInput!): Clothes!
     updateClothes(input: ClothesInput!): Boolean
     deleteClothes(id: String!): Boolean
+    createBrand(input: BrandInput!): Brand!
+    updateBrand(input: BrandInput!): Boolean
+    deleteBrand(id: String!): Boolean
 }
 
 interface IProduct {
@@ -69,6 +72,20 @@ enum Size {
 }
 
 type Brand {
+    id: ID!
+    name: String!,
+    rate: Int,
+    follow: Int,
+    location: String,
+    img: String,
+    joindate: String,
+    lastmod: String,
+    instag: String,
+    fb: String,
+    shopif: String
+}
+
+input BrandInput {
     id: ID!
     name: String!,
     rate: Int,

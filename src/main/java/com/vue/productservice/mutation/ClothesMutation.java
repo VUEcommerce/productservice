@@ -1,7 +1,5 @@
 package com.vue.productservice.mutation;
 
-import javax.transaction.Transactional;
-
 import com.vue.productservice.model.Clothes;
 import com.vue.productservice.repository.ClothesRepository;
 

@@ -19,4 +19,5 @@ public class BrandQuery implements GraphQLQueryResolver {
     public Brand brand(String id) {
         return brandRepository.findById(id).get();
     }
+
 }
