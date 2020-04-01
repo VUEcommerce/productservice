@@ -34,7 +34,7 @@ public class ProductJpaTest {
         clothes.setPrice(10.00f);
         clothes.setQty(1);
         clothes.setWt(1.0f);
-        clothes.setSize(Clothes.Size.Medium);
+        clothes.setSize(Clothes.Size.HM);
 
         clothesRepository.save(clothes);
     }

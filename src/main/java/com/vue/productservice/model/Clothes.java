@@ -22,10 +22,17 @@ public class Clothes extends Product  {
     private Size size;
 
     public enum Size {
-        ExtraSmall,
-        Small,
-        Medium,
-        Large,
-        ExtraLarge
+        XS,
+        HXS,
+        S,
+        HS,
+        M,
+        HM,
+        L,
+        HL,
+        XL,
+        HXL,
+        TWOXL,
+        HTWOXL
     }
 }

@@ -16,13 +16,15 @@ CREATE TABLE `product_clothes` (
   `id` varchar(32) NOT NULL,
   `sku` varchar(32) NOT NULL,
   `name` varchar(32) NOT NULL,
-  `brand` varchar(32) NULL,
-  `desc` text NULL,
+  `brand` varchar(32),
+  `maincat`varchar(32),
+  `subcat` varchar(32),
+  `desc` text,
   `img` varchar(128),
   `price` float DEFAULT '0.00',
   `wt` float DEFAULT '0.000',
   `qty` bigint unsigned DEFAULT '0',
-  `size` varchar(16),
+  `size` varchar(8),
   PRIMARY KEY (`id`),
   UNIQUE KEY (`id`, `sku`)
 ) ENGINE=InnoDB;

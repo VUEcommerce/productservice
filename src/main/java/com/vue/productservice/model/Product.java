@@ -27,6 +27,12 @@ public class Product {
     @Column(name = "brand", nullable = true)
     private String brand;
 
+    @Column(name = "maincat", nullable = true)
+    private String maincat;
+
+    @Column(name = "subcat", nullable = true)
+    private String subcat;
+
     @Column(name = "price", nullable = true)
     private Float price;
 

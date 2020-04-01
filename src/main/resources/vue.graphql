@@ -18,6 +18,8 @@ interface IProduct {
     sku: String!,
     name: String!,
     brand: String,
+    maincat: String,
+    subcat: String,
     price: Float,
     qty: Int,
     desc: String,
@@ -30,6 +32,8 @@ type Product implements IProduct {
     sku: String!,
     name: String!,
     brand: String,
+    maincat: String,
+    subcat: String,
     price: Float,
     qty: Int,
     desc: String,
@@ -42,12 +46,14 @@ type Clothes implements IProduct {
     sku: String!,
     name: String!,
     brand: String,
+    maincat: String,
+    subcat: String,
     price: Float,
     qty: Int,
     desc: String,
     wt: Float,
     img: String,
-    size: Size
+    size: ClothesSize
 }
 
 input ClothesInput {
@@ -55,20 +61,29 @@ input ClothesInput {
     sku: String!,
     name: String!,
     brand: String,
+    maincat: String,
+    subcat: String,
     price: Float,
     qty: Int,
     desc: String,
     wt: Float,
     img: String,
-    size: Size
+    size: ClothesSize
 }
 
-enum Size {
-    ExtraSmall,
-    Small,
-    Medium,
-    Large,
-    ExtraLarge
+enum ClothesSize {
+    XS
+    HXS
+    S
+    HS
+    M
+    HM
+    L
+    HL
+    XL
+    HXL
+    TWOXL
+    HTWOXL
 }
 
 type Brand {
